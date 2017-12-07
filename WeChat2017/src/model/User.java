@@ -8,12 +8,12 @@ import java.util.Map;
 public class User implements Serializable{
 	private String username;
 	private String password;
-	private String nickname;
 	public User(String username, String password) {
 		super();
 		this.username = username;
 		this.password = password;
 	}
+	private String nickname;
 	private String sex;
 	private int age;
 	private String signatrue;
@@ -81,5 +81,9 @@ public class User implements Serializable{
 	}
 	public User() {
 		super();
+	}
+	public String toString() {
+		return "User [username=" + username + ", password=" + password + ", sex=" + sex + ", age=" + age + ", nickname="
+				+ nickname + ", signatrue=" + signatrue + ", imagePath=" + imagePath + "]";
 	}
 }

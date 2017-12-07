@@ -28,38 +28,39 @@ public class DBOperator {
 
 	}
 
-	public static User login(String username,String password) throws ClassNotFoundException{
-		File data=new File("data/"+username+".xxx");
-		if (!data.exists()) {
+	public static  User  login(String username,String password) {
+		File  data=new File("databases/"+username+".qq");
+		if(!data.exists()) {
 			return null;
-		}
-		User user=null;
-		
-		try {
-			ObjectInputStream in=new ObjectInputStream(new FileInputStream("data/"+username+".xxx"));
-			User dbuser=(User)in.readObject();
-			if(password.equals(dbuser.getPassword()))
-			{
-				return dbuser;
-			}
-			else {
+		}else
+		{
+			
+			try {
+				ObjectInputStream  in=new ObjectInputStream(new FileInputStream("databases/"+username+".qq"));
+				User dbUser=(User)in.readObject();
+				if(password.equals(dbUser.getPassword()))
+				{
+					return dbUser;
+				}else
+				{
+					return null;
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
 				return null;
 			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
 		}
+		
 	}
 	public static void main(String[] args) {
-		User user1 = new User("1111", "1111", "·ÉÀÏ°å", "ÄĞ", 99, "Ã»ÓĞÎÒ·ÉÀÏ°å×ö²»³öµÄÏîÄ¿", "");
-		User user2 = new User("2222", "2222", "´ó·É¸ç", "ÄĞ", 18, "Ã»ÓĞÎÒ´ó·É¸ç¸ã²»¶¨µÄÊÂÇé", "");
+		User user1 = new User("1111", "1111", "å¤§é£å“¥", "ç”·", 99, "æ²¡æœ‰æˆ‘å¤§é£å“¥å†™ä¸å‡ºçš„ä»£ç ", "");
+		User user2 = new User("2222", "2222", "è°¢è€æ¿", "ç”·", 18, "æ²¡æœ‰æˆ‘è°¢è€æ¿æä¸å®šçš„äº‹æƒ…", "");
 
 		Map<String, HashSet<User>> friends = new HashMap<>();
 		HashSet<User> f1s = new HashSet<>();
 
 		f1s.add(user2);
-		friends.put("´ó¸ç", f1s);
+		friends.put("è€æ¿", f1s);
 		user1.setFriends(friends);
 
 		try {

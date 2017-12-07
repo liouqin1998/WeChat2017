@@ -2,7 +2,11 @@ package model;
 
 import java.io.Serializable;
 
-
+/**
+ * 这个类是封装消息对象的类型，里面应该定义所有消息应该共有的属性
+ * @author TengSir
+ *
+ */
 public class MessageBox  implements Serializable{
 	private User  from;
 	

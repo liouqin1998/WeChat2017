@@ -172,7 +172,7 @@ public class RegisterFrame extends JFrame {
 				registerMessage.setFrom(u);
 				registerMessage.setType("register");
 				
-				//4.使用序列化写给服务器，让服务器注册
+
 				try {
 					RegisterFrame.this.out.writeObject(registerMessage);
 					RegisterFrame.this.out.flush();
@@ -180,7 +180,6 @@ public class RegisterFrame extends JFrame {
 					e1.printStackTrace();
 				}
 				System.out.println("send end");
-				//5.根据服务器给我的回复的注册消息进一步跳转界面
 				MessageBox result=null;
 				try {
 					result = (MessageBox)RegisterFrame.this.in.readObject();
